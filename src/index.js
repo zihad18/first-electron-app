@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const windowStateKeeper = require('electron-window-state')
+const electronIsDev = require('electron-is-dev');
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 // eslint-disable-next-line global-require
 if (require('electron-squirrel-startup')) {
@@ -25,10 +26,12 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
-
-  //mainWindow.webContents.openDevTools();
-
+  if (electronIsDev) {
+   mainWindow.webContents.openDevTools();
+  } 
+  
   mainWindowState.manage(mainWindow);
+ 
 };
 
 // This method will be called when Electron has finished
