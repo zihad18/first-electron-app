@@ -19,7 +19,10 @@ const createWindow = () => {
     'y': mainWindowState.y,
     'width': mainWindowState.width,
     'height': mainWindowState.height,
-     title : "this is Jashore"
+     title : "this is Jashore",
+     webPreferences :{
+      preload : path.join(__dirname,'preload.js')
+     }
   });
 
   // and load the index.html of the app.
