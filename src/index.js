@@ -22,6 +22,7 @@ const createWindow = () => {
      title : "this is Jashore",
      webPreferences :{
       preload : path.join(__dirname,'preload.js')
+      
      }
   });
 
